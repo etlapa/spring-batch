@@ -2,8 +2,9 @@
 Project name: spring-batch
 
 ## What it's in this commit:
-- Setting up the class *BatchConfiguration*. In this class is enabling the batch processing (@EnableBatchProcessing) and creating the beans for **JobRepository**, **JobExplorer** and **JobLauncher** through ***BatchConfigurer***.
-- The** TransactionManager**, **JpaRepositories** and **data source** are declared at *DatabaseConfiguration* . **Liquibase** is also setup here. 
-- *ApplicationProperties* is matching some properties from the yaml file
-- *DefaultProfileUtil* is used to setup a default profile while starting up the SpringBoot App
-- No errors were found when executed, but it's doing nothing yet
+- Previously was creating everything to support a Job.
+- A configuration class (*BatchJobConfiguration*) has been created to define a **Job** with a single **Step**. This **Step** returns a **Tasklet**.
+- A simple unit test has been created to validate that if the **Job** exists in the batch context.
+- Some extra beans were added (mx.edev.springbatch.domain) to create an **Job** with a reader/processor/writer in the future.
+- Hibernate dependencies were added in the pom file to support the Entity class (PatientEntity)
+- Until this point, the Batch Job is correctly configured.

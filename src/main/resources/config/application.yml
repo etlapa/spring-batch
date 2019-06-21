@@ -51,4 +51,5 @@ management:
 
 application:
     batch:
-        inputPath: c:/demo/patient-batch-loader/data
+        inputPath: /tmp
+        inputName: fileName.txt
