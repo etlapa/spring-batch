@@ -41,6 +41,15 @@ public class BatchJobConfiguration {
         return this.jobBuilderFactory.get(Constants.JOB_NAME).validator(validator()).start(step).build();
     }
 
+    // @Bean
+    // public Step step(ItemReader<PatientRecord> itemReader,
+    // Function<PatientRecord, PatientEntity> processor,
+    // JpaItemWriter<PatientEntity> writer) throws Exception {
+    // return this.stepBuilderFactory.get(Constants.STEP_NAME).<PatientRecord,
+    // PatientEntity>chunk(2)
+    // .reader(itemReader).processor(processor).writer(writer).build();
+    // }
+
     @Bean
     public Step step() {
         return this.stepBuilderFactory.get(Constants.STEP_NAME).tasklet(new Tasklet() {
